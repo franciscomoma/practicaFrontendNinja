@@ -1,5 +1,14 @@
 .items-view{
     .item{
+        @media screen and (min-width: 800px){
+            width: 49%;
+            padding: 0 20;
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+
         margin-bottom: 30px;
 
         .item-video, .item-thumbnail{
@@ -34,6 +43,17 @@
             }
         }
     }
+    @media screen and (min-width: 480px){
+        width: 80%;
+        max-width: 1024px;
+        margin: auto; 
+        
+    }
+
+    @media screen and (min-width: 800px){
+        width: 100%;
+    }
+
 }
 
 .item-info{
@@ -68,7 +88,7 @@
 .social{
 
     .social-item{
-        display:inline-flex;
+        display:flex;
         flex-direction: row;
         align-items: center;
         margin-right: 5px;

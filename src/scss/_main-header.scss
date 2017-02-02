@@ -1,5 +1,6 @@
 body{
     margin-top: $main-menu-item-height;
+
 }
 
 .main-header{
@@ -17,6 +18,11 @@ body{
         width:100%;
         background-color: $main-background-color;
         z-index: 99;
+        @media screen and (min-width: 800px){
+            display: inline-block;
+            width: initial;
+            position: initial;
+        }
     }
 
     .main-header-search{
@@ -31,23 +37,41 @@ body{
         position: fixed;
         top: $main-menu-item-height;
         display: none;
+
+        @media screen and (min-width: 800px){
+            display: inline-block;
+            position: initial;
+            width: initial;
+        }
     }
     .main-menu{
+        text-align: center;
+        overflow-y: hidden;
         .main-menu-list{
             list-style-type: none;
-            display: flex;
-            flex-direction: row;
-            overflow-y: hidden;            
-            white-space: nowrap;
+            display: inline-flex;
+            flex-flow: row nowrap;
+            
             .main-menu-item{
                 margin: 0 15px;
-                box-sizing: border-box;
                 .main-menu-item-link{
+
                     display: block;
                     line-height: $main-menu-item-height;
                 }
             }   
-
         }
+        @media screen and (min-width: 800px){
+            position: initial;
+            width: initial;
+            display: inline-block;
+        
+        }
+
+
+    }
+    @media screen and (min-width: 800px){
+        position: fixed;
+        margin-top: - $main-menu-item-height;
     }
 }
