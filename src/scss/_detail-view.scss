@@ -1,0 +1,54 @@
+.detail-view{
+    margin-bottom: 30px;
+
+    .detail-header{
+        .detail-title, .detail-subtitle{
+            margin: 10px 0;
+        }
+
+        .detail-title{
+            line-height: 36px;
+            font-size: 32px;
+            .detail-title-link{
+                color: #000000;
+                text-decoration: none;
+            }
+        }
+
+        .detail-subtitle{
+            color: lighten(#000000, 35%);
+            text-transform: uppercase;
+            font-size: 20px;
+        }
+    }
+
+    .detail-video, .detail-image{
+        width: 100%;
+    }
+
+    .detail-header-content, .detail-content{
+        margin: 0 20px;
+    }
+
+    .detail-content{
+        p{
+            font-family: 'Rambla', sans;
+        }
+    }
+
+    .detail-social{
+        margin: 16px 0;
+    }
+
+    @media screen and (min-width: 480px){
+        width: 80%;
+        max-width: 1024px;
+        margin: auto; 
+        margin-bottom: 30px;
+    }
+
+    @media screen and (min-width: 800px){
+        width: 100%;
+    }
+
+}

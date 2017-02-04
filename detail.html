@@ -2,28 +2,53 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./dist/css/fnews.css">
     </head>
-    <body>
+    <body id="body">
+        <header class="main-header">
+            <div class="main-header-container">
+                <h1 class="main-header-title">FNEWS</h1>
+                <span class="search-icon icon small-devices medium-devices"></span>
+                <input type="search" class="main-header-search" placeholder="Search">
+                <nav class="main-menu">
+                    <ul class="main-menu-list">
+                        <li class="main-menu-item"><a class="main-menu-item-link" href="">Technology</a></li>
+                        <li class="main-menu-item"><a class="main-menu-item-link" href="">Science</a></li>
+                        <li class="main-menu-item"><a class="main-menu-item-link" href="">Entertainment</a></li>
+                        <li class="main-menu-item"><a class="main-menu-item-link" href="">Politics</a></li>
+                        <li class="main-menu-item"><a class="main-menu-item-link" href="">International</a></li>
+                        <li class="main-menu-item"><a class="main-menu-item-link" href="">Sports</a></li>
+                    </ul>
+                </nav>
+                <span class="login-icon icon small-devices medium-devices"></span>
+                <div class="main-header-login">
+                    <a href="/login">Log In</a> or <a href="/joinus">Join Us</a>
+                </div>
+            </div>
+        </header>
         <article class="detail-view">
-            <section class="detail-header">
-                <img src="./uploads/2017/01/0001_main.jpg" alt="" class="detail-image">
-                <h1 class="detail-title">Jim Hall and the Chaparral 2J: The Story of America's Most Extreme Race Car</h1>
-                <h2 class="detail-subtitle">Jim Hall's Chaparral built some of the wildest and most creative race cars ever seen. We visited Hall to see the amazing 2J and witness his first drive in it in 30 years.</h2>
-                <section class="detail-info">
-                    <span class="published-on" data-timestamp="1485162000"></span>
-                    <div class="author">
-                        <img class="author-image" />
-                        <span class="author-name">roadandtrack.com</span>
-                    </div>        
-                </section>
-            </section>
+            <header class="detail-header">
+                <img class="detail-image" src="./uploads/2017/01/0001_main.jpg" alt="" class="detail-image">
+
+                <div class="detail-header-content">
+                    <h1 class="detail-title">Jim Hall and the Chaparral 2J: The Story of America's Most Extreme Race Car</h1>
+                    <h2 class="detail-subtitle">Jim Hall's Chaparral built some of the wildest and most creative race cars ever seen. We visited Hall to see the amazing 2J and witness his first drive in it in 30 years.</h2>
+                    <section class="detail-info">
+                        <span class="published-on" data-timestamp="1485162000"></span>
+                        <div class="author">
+                            <img class="author-image" />
+                            <span class="author-name">roadandtrack.com</span>
+                        </div>        
+                    </section>
+                </div>
+            </header>
             <section class="detail-content">
                 <p>On July 12, 1970, a white Chevrolet pickup truck towing a trailer pulled into the paddock at Watkins Glen International Raceway for the third Can-Am race of the season. A small crowd gathered to watch the team unload. The small white race car atop the trailer looked like nothing else: no wing, no velocity stacks, no scoops or side pods or wild cutaways or NACA ducts, hardly a curve of any kind. The rear wheels were encased in bodywork as flat and unadorned as a diner kitchen. "Like the box it came in," the crowd observed. They moved to the back of the car: two fans like jet engines, supported by three black Dagmar-shaped cones, looking more like a Star Wars escape pod than a road-going automobile.</p>
 
                 <p>Who knows what the crowd must have thought. Who knows what the other drivers and team managers and pit chiefs must have thought. Dear God! Can-Am was famous for having no-holds-barred technical expertise, but this was something else: every other car looked like phallic fantasy, all elongated curves and swoops and short, stubby wedges, like 6th-grader math class daydreaming rather than real race cars, but here the Chaparral 2J was square, bulky, straight-paneled and utterly, breathtakingly, rational. The crowd had seen nothing like it.</p>
 
                 <figure class="detail-figure">
-                    <img src="./uploads/2017/01/0001_upload_0001.jpg" alt="" class="detail-figure-image">
+                    <img class="detail-image" src="./uploads/2017/01/0001_upload_0001.jpg" alt="" class="detail-figure-image">
                     <figcaption class="detail-figure-caption">Jim Hall at Road America in 1968</figcaption>
                 </figure>
 
@@ -36,7 +61,7 @@
                 <p>One of these guys was James Sharp. Sharp was another Texas oilman who went all in to the racing game: he competed in Formula One at the same time as Hall, racing a Cooper Monaco nicknamed by the press "Old Dirty," to his chagrin. Born on New Years Day, hence his nickname Hap ("Happy New Year"), the broad-shouldered Sharp also played polo, gambled, raced powerboats (he won the US National Outboard Racing Championship) and eventually amassed over 100,000 acres of land in South America.</p>
 
                 <figure class="detail-figure">
-                    <img src="./uploads/2017/01/0001_upload_0002.jpg" alt="" class="detail-figure-image">
+                    <img class="detail-image" src="./uploads/2017/01/0001_upload_0002.jpg" alt="" class="detail-figure-image">
                     <figcaption class="detail-figure-caption">Hall in the Chaparral 2 at Daytona in 1962</figcaption>
                 </figure>
 
@@ -59,7 +84,7 @@
                 <p>The car missed the first two races of the 1970 season. Jackie Stewart went to America to drive the 2J at Watkins Glen, a one-race deal; he qualified third. "The car's traction, its ability to brake and go deeply into the corners, is something I've never experienced before in a car this size or bulk," he wrote in his book Faster!. "Its adhesion is such that it seems to be able to take unorthodox lines through turns, and this, of course, is intriguing."</p>
 
                 <figure class="detail-figure">
-                    <img src="./uploads/2017/01/0001_upload_0003.jpg" alt="" class="detail-figure-image">
+                    <img class="detail-image" src="./uploads/2017/01/0001_upload_0003.jpg" alt="" class="detail-figure-image">
                     <figcaption class="detail-figure-caption">The 2J at Laguna Seca</figcaption>
                 </figure>
 
@@ -68,7 +93,7 @@
                 <p>The team missed the next three races. Vic Elford campaigned the 2J in the remaining four events. At Laguna Seca Raceway, the second-to-last race, Elford was the only driver to qualify under a minute—even though he had never driven the track before. The next day, he smashed McLaren's 1969 record. The McLaren camp considered protesting. They didn't need to. A connecting rod punched through the block in the mighty Chevrolet engine, and the team simply didn't have enough time to take off the bodywork and swap the engine. The team moved on to Riverside, the last race of the season. Once again, Elford qualified first. The Rockwell JLO engine broke a crankshaft but the team was able to patch it up just before the race. After the green flag dropped, on just the second lap, the auxiliary engine died—this time for good. The fan system was all but useless and the car dropped out for the last time.</p>
 
                 <figure class="detail-figure">
-                    <img src="./uploads/2017/01/0001_upload_0004.jpg" alt="" class="detail-figure-image">
+                    <img class="detail-image" src="./uploads/2017/01/0001_upload_0004.jpg" alt="" class="detail-figure-image">
                     <figcaption class="detail-figure-caption">The Chaparral 2E at Riverside in 1966.</figcaption>
                 </figure>
 
@@ -91,7 +116,7 @@
                 <p>Hall hadn't driven it in thirty years. But to him, in that all-brief moment, it felt just right.</p>
 
                 <figure class="detail-figure">
-                    <img src="./uploads/2017/01/0001_upload_0005.jpg" alt="" class="detail-figure-image">
+                    <img class="detail-image" src="./uploads/2017/01/0001_upload_0005.jpg" alt="" class="detail-figure-image">
                     <figcaption class="detail-figure-caption">The 2J at Laguna Seca</figcaption>
                 </figure>
 
@@ -116,5 +141,48 @@
                 <a class="article-copyright" href="http://www.roadandtrack.com/motorsports/a32350/jim-hall-chaparral-2j-history/">From roadandtrack.com through digg.com</a>
             </section>
         </article>
+        <section class="comments">
+            <h1 class="comments-title">Comments</h1> 
+            <section class="comments-list">
+                <div class="comments-void-list">
+                    We haven't any comment yet. Post your own!
+                </div>
+                <div class="comments-loading-list">
+                    Loading...
+                </div>
+                <div class="comments-error-list">
+                    Error loading comments
+                </div>
+            </section>
+
+            
+            <form class="comments-form">
+                <h2 class="comments-subtitle">Post a comment:</h2>
+                <div class="comments-input-row">
+                    <input type="text" class="comments-field" name="name" id="name" placeholder="Name" />
+                    <input type="text" class="comments-field" name="surname" id="surname" placeholder="Surame" />
+                </div>
+                <div class="comments-input-row">
+                    <input type="text" class="comments-field" name="email" id="email" placeholder="Email" />
+                </div>
+                <div class="comments-input-row">
+                    <textarea class="comments-field" name="" id="" cols="30" rows="10"></textarea>
+                </div>
+                
+                <div class="comments-input-row">
+                    <input class="comments-field" type="submit">
+                </div>
+            </form>
+        </section>
+
+        <footer class="main-footer">
+            <div class="main-footer-container">
+                <a href="#body"><h1 class="main-footer-title">FNEWS</h1></a>
+                <div class="main-footer-disclaimer">This site is a copy from <a href="digg.com">digg.com</a> in order to show my frontend skills</div>
+                <div class="main-footer-author">
+                    Francisco Molina - 2017
+                </div>
+            </div>
+        </footer>
     </body>
 </html>
