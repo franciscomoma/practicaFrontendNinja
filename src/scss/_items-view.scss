@@ -45,7 +45,7 @@
     }
     @media screen and (min-width: 480px){
         width: 80%;
-        max-width: 1024px;
+        max-width: $container-max-width;
         margin: auto; 
     }
 
@@ -72,14 +72,10 @@
         }
         .author-name{
             margin-left: 5px;
-            
         }
     }
 
     .published-on{
-        margin-left: 4px;
-        &:before{
-            content: ' - ';
-        }
+        margin-left: 6px;
     }
 }

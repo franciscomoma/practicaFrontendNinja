@@ -16,20 +16,20 @@ body{
             text-align: center;
             margin: 0;
             border-bottom-style: solid;
-            border-bottom-width: 3px;
+            border-bottom-width: $menu-border-width;
             margin-top: - $main-menu-item-height;
             position: fixed;
             width:100%;
             background-color: $main-background-color;
             z-index: 99;
             
-            @media screen and (min-width: 800px){
+            @media screen and (min-width: $large-screen){
                 border-bottom: none;
             }
         }
 
         .main-header-search{
-            background-color: $input_background_color;
+            background-color: $main_background_color;
             border-width: 0;
             background-size: 100%;
             width: 100%;
@@ -38,16 +38,16 @@ body{
             height: $main-menu-item-height;
             z-index: 99;
             position: fixed;
-            top: $main-menu-item-height + 3px;
+            top: $main-menu-item-height + $menu-border-width;
             display: none;
         }
 
         .main-header-login{
             position: fixed;
             line-height: $main-menu-item-height;
-            top: $main-menu-item-height + 3px;
+            top: $main-menu-item-height + $menu-border-width;
             display: none;
-            background-color: $input_background_color;
+            background-color: $main_background_color;
             z-index: 99;
             
             width: 100%;
@@ -88,18 +88,17 @@ body{
 
 
     }
-        @media screen and (min-width: 800px){
+        @media screen and (min-width: $large-screen){
             width: 100%;
             position: fixed;
             margin-top: - $main-menu-item-height;
             border-bottom-style: solid;
-            border-bottom-width: 3px;     
+            border-bottom-width: $menu-border-width;
 
             .main-header-container{
                 margin: auto;
                 width: 96%;
                 padding: 0 2%;
-                
    
                 display: flex;
                 justify-content: space-between;
@@ -118,11 +117,11 @@ body{
             }
         }
 
-        @media screen and (min-width: 1100px){
+        @media screen and (min-width: $largest-screen){
             
             .main-header-container{
                 
-                max-width: 1200px;
+                max-width: $menu-max-width;
 
                 .main-header-login, .main-header-search{
                     display: inline-block;

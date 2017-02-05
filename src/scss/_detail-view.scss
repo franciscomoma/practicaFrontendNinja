@@ -1,5 +1,5 @@
 .detail-view{
-    margin-bottom: 30px;
+    margin-bottom: $default-margin-bottom;
 
     .detail-header{
         .detail-title, .detail-subtitle{
@@ -8,17 +8,17 @@
 
         .detail-title{
             line-height: 36px;
-            font-size: 32px;
+            font-size: $title-font-size;
             .detail-title-link{
-                color: #000000;
+                color: $font-color;
                 text-decoration: none;
             }
         }
 
         .detail-subtitle{
-            color: lighten(#000000, 35%);
+            color: $secondary-font-color;
             text-transform: uppercase;
-            font-size: 20px;
+            font-size: $subtitle-font-size;
         }
     }
 
@@ -31,7 +31,7 @@
     }
 
     .detail-content{
-        p{
+        p, b, a{
             font-family: 'Rambla', sans;
         }
     }
@@ -40,14 +40,14 @@
         margin: 16px 0;
     }
 
-    @media screen and (min-width: 480px){
+    @media screen and (min-width: $medium-screen){
         width: 80%;
-        max-width: 1024px;
+        max-width: $large-screen;
         margin: auto; 
-        margin-bottom: 30px;
+        margin-bottom: $default-margin-bottom;
     }
 
-    @media screen and (min-width: 800px){
+    @media screen and (min-width: $large-screen){
         width: 100%;
     }
 

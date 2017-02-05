@@ -7,6 +7,7 @@
     "font-awesome": "^4.7.0",
     "jquery": "^3.1.1",
     "moment": "^2.17.1",
+    "picturefill": "^3.0.2",
     "scrollpoints": "^0.4.0",
     "waypoints": "^4.0.1"
   },
@@ -36,7 +37,8 @@
     "gulp-uglify": "^2.0.0",
     "gulp-util": "^3.0.8",
     "gulp-watch": "^4.3.11",
-    "gulp.spritesmith": "^6.3.0"
+    "gulp.spritesmith": "^6.3.0",
+    "run-sequence": "^1.2.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -7,10 +7,13 @@ var glob = require('glob')
 var googleWebFonts = require('gulp-google-webfonts');
 var browserify = require('browserify');
 var tap = require('gulp-tap');
-var browserify = require('browserify');
 var tap = require('gulp-tap');
 var envify = require('envify/custom');
 var gutil = require('gulp-util');
+var postcss = require('gulp-postcss');
+var autoprefixer = require('autoprefixer');
+var cssnano = require('cssnano');
+var uglify = require('gulp-uglify');
 
 var options = {
 	fontsDir: './dist/fonts',
@@ -29,10 +32,10 @@ var sizes = {
 var watchers=[
     {
         tasks: ['getCSS'],
-        trigger: './src/scss/*.scss'
+        trigger: './src/scss/**/*.scss'
     },{
         tasks: ['reloadBrowser'],
-        trigger: ['*.html','./dist/js/*.js']
+        trigger: ['*.html','./dist/js/**/*.js']
     },
     {
         tasks: ['getFonts'],
@@ -40,12 +43,19 @@ var watchers=[
     },
     {
         tasks: ['getJavascript'],
-        trigger: './src/js/*.js'
+        trigger: './src/js/**/*.js'
     }
 ]
 
 function errorHandler(error){
     notify().write(error)
+}
+
+function initWatchers(){
+    for(var index in watchers){
+        watcher = watchers[index]
+        gulp.watch(watcher.trigger,watcher.tasks)
+    }
 }
 
 gulp.task('default', ['getCSS', 'getFonts', 'getJavascript'], function(){
@@ -56,13 +66,6 @@ gulp.task('reloadBrowser', function(){
     browserSync.reload(); 
     notify().write("Browser reloaded");
 })
-
-function initWatchers(){
-    for(var index in watchers){
-        watcher = watchers[index]
-        gulp.watch(watcher.trigger,watcher.tasks)
-    }
-}
 
 gulp.task('dev', ['default'], function(){
 
@@ -82,8 +85,16 @@ gulp.task('withSparrest', ['default'], function(){
     initWatchers();
 })
 
-gulp.task('prod', ['default'], function(){
-   
+gulp.task('optimice',function(){
+    gulp.src('./dist/js/fnews.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('./dist/js/'));
+
+    gulp.src('./dist/css/fnews.css')
+        .pipe(postcss([autoprefixer(), cssnano()]))
+        .pipe(gulp.dest('./dist/css/'));
+
+    return notify().write('Minified and uglified');
 })
 
 gulp.task('getCSS', function(){
@@ -96,12 +107,6 @@ gulp.task('getCSS', function(){
         .pipe(gulp.dest('./dist/css'))
         .pipe(browserSync.stream())
         .pipe(notify('CSS Updated'))
-})
-
-gulp.task('getJS', function(){
-    notify().write('Working getJS')
-    console.log('Working getJS');
-    gulp.src('./src/js/fnews.js')
 })
 
 gulp.task('getFonts', function() {
@@ -122,7 +127,7 @@ gulp.task("getJavascript", function(){
     gulp.src('./src/js/fnews.js')
     .pipe(tap(function(file){
         file.contents = browserify(file.path, { debug:true })
-        .transform(envify(gutil.env))  // nos permite leer variables de entorno con process.env
+        .transform(envify(gutil.env))
         .bundle()
         .on('error', function(error){
             return notify().write(error);
@@ -131,6 +136,7 @@ gulp.task("getJavascript", function(){
     .pipe(gulp.dest('./dist/js/'))
     .pipe(notify("JS Updated"));
 });
+
 
 gulp.task('responsive', function () {
     return gulp.src(['uploads/**/**/*[0-9]{.jpg,.png}','uploads/**/**/*main{.jpg,.png}'])

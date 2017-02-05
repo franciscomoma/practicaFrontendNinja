@@ -9,11 +9,7 @@ html, body, ul, ol{
 
 a{
     text-decoration: none;
-    color: #000000;
-}
-
-.link{
-
+    color: $link-color;
 }
 
 .social{
@@ -30,10 +26,8 @@ a{
 .icon{
     @extend .fa;
     font-size: 20px;
-    color: lighten(#000000, 35%);
+    color: $secondary-font-color;
 }
-
-
 
 .likes-icon{
     @extend .fa-thumbs-o-up;
@@ -77,3 +71,4 @@ a{
 .liked *{
     color: blue;
 }
+

@@ -1,5 +1,22 @@
 $main_background_color: #FFFFFF;
-$secondary_background_color: #FFFFFF;
-$input_background_color: #FFFFFF;
+$font-color: #000000;
+$border-color: $font-color;
+$link-color: #930c00;
+$secondary-font-color: lighten($font-color, 35%);
+
+$medium-screen: 480px;
+$large-screen: 800px;
+$largest-screen: 1100px;
 
 $main-menu-item-height: 40px;
+
+$menu-border-width: 3px;
+$menu-max-width: 1200px;
+$container-max-width: 1000px;
+
+$default-box-shadow: 6px 6px 0px -4px $main-background-color;
+$default-margin-bottom: 30px;
+
+$small-font-size: 14px; 
+$title-font-size: 32px;
+$subtitle-font-size: 20px;

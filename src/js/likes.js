@@ -1,16 +1,11 @@
 var $ = require('jquery');
+var service = require('./services/likes')
 
 $(document).ready(function(e){
-    var storage = localStorage;
-
-    var likes = {};
-
-    if(storage.getItem('likes'))
-    {
-        likes = JSON.parse(storage.getItem('likes'))
-    }
-
+    
     function applyLikes(){
+        var likes = service.list();
+
         for( var prop in likes){
             var like = $('#'+prop+' .likes')
             
@@ -29,15 +24,7 @@ $(document).ready(function(e){
 
     $('.likes').click(function(item){
         var id = $(this).closest('article.item').attr('id')
-
-        if(likes[id])
-        {
-            likes[id] = 0;
-        }else{
-            likes[id] = 1;
-        }
-
-        storage.setItem('likes', JSON.stringify(likes));
+        service.create(id)
         applyLikes();
     })
 })
