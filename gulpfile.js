@@ -5,6 +5,12 @@ var responsive = require('gulp-responsive');
 var sass = require('gulp-sass')
 var glob = require('glob')
 var googleWebFonts = require('gulp-google-webfonts');
+var browserify = require('browserify');
+var tap = require('gulp-tap');
+var browserify = require('browserify');
+var tap = require('gulp-tap');
+var envify = require('envify/custom');
+var gutil = require('gulp-util');
 
 var options = {
 	fontsDir: './dist/fonts',
@@ -31,6 +37,10 @@ var watchers=[
     {
         tasks: ['getFonts'],
         trigger: ['./fonts.list'] 
+    },
+    {
+        tasks: ['getJavascript'],
+        trigger: './src/js/*.js'
     }
 ]
 
@@ -38,7 +48,7 @@ function errorHandler(error){
     notify().write(error)
 }
 
-gulp.task('default', ['getCSS', 'getFonts'], function(){
+gulp.task('default', ['getCSS', 'getFonts', 'getJavascript'], function(){
     notify().write("Basic tasks done");
 })
 
@@ -47,17 +57,29 @@ gulp.task('reloadBrowser', function(){
     notify().write("Browser reloaded");
 })
 
-gulp.task('dev', ['default'], function(){
+function initWatchers(){
+    for(var index in watchers){
+        watcher = watchers[index]
+        gulp.watch(watcher.trigger,watcher.tasks)
+    }
+}
 
+gulp.task('dev', ['default'], function(){
 
     browserSync.init({
         server : './'
     })
 
-    for(var index in watchers){
-        watcher = watchers[index]
-        gulp.watch(watcher.trigger,watcher.tasks)
-    }
+    initWatchers();
+})
+
+gulp.task('withSparrest', ['default'], function(){
+
+    browserSync.init({
+        proxy: "127.0.0.1:8000"
+    })
+
+    initWatchers();
 })
 
 gulp.task('prod', ['default'], function(){
@@ -86,11 +108,28 @@ gulp.task('getFonts', function() {
   gulp.src('./node_modules/font-awesome/fonts/*')
     .pipe(gulp.dest('./dist/fonts'));
 
-	return gulp.src('./fonts.list')
-		.pipe(googleWebFonts(options))
+
+	gulp.src('./fonts.list')
+		.pipe(googleWebFonts(options).on('error', function(error){
+            return notify().write(error);
+        }))
 		.pipe(gulp.dest('./'))
 		;
 
+});
+
+gulp.task("getJavascript", function(){
+    gulp.src('./src/js/fnews.js')
+    .pipe(tap(function(file){
+        file.contents = browserify(file.path, { debug:true })
+        .transform(envify(gutil.env))  // nos permite leer variables de entorno con process.env
+        .bundle()
+        .on('error', function(error){
+            return notify().write(error);
+        });
+    }))
+    .pipe(gulp.dest('./dist/js/'))
+    .pipe(notify("JS Updated"));
 });
 
 gulp.task('responsive', function () {

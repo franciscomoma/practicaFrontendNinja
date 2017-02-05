@@ -3,6 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./dist/css/fnews.css">
+        
     </head>
     <body id="body">
         <header class="main-header">
@@ -26,7 +27,7 @@
                 </div>
             </div>
         </header>
-        <article class="detail-view">
+        <article class="detail-view" id="2017010001">
             <header class="detail-header">
                 <img class="detail-image" src="./uploads/2017/01/0001_main.jpg" alt="" class="detail-image">
 
@@ -141,38 +142,28 @@
                 <a class="article-copyright" href="http://www.roadandtrack.com/motorsports/a32350/jim-hall-chaparral-2j-history/">From roadandtrack.com through digg.com</a>
             </section>
         </article>
-        <section class="comments">
-            <h1 class="comments-title">Comments</h1> 
-            <section class="comments-list">
-                <div class="comments-void-list">
-                    We haven't any comment yet. Post your own!
-                </div>
-                <div class="comments-loading-list">
+        <section class="comments-view">
+            <div class="comments-container">
+                <h1 class="comments-title">Comments</h1> 
+                <section class="comments-list">
+                <article class="comment-loading-list">
                     Loading...
-                </div>
-                <div class="comments-error-list">
-                    Error loading comments
-                </div>
-            </section>
-
-            
-            <form class="comments-form">
+                </article>
+                </section>
                 <h2 class="comments-subtitle">Post a comment:</h2>
-                <div class="comments-input-row">
-                    <input type="text" class="comments-field" name="name" id="name" placeholder="Name" />
-                    <input type="text" class="comments-field" name="surname" id="surname" placeholder="Surame" />
-                </div>
-                <div class="comments-input-row">
-                    <input type="text" class="comments-field" name="email" id="email" placeholder="Email" />
-                </div>
-                <div class="comments-input-row">
-                    <textarea class="comments-field" name="" id="" cols="30" rows="10"></textarea>
-                </div>
-                
-                <div class="comments-input-row">
-                    <input class="comments-field" type="submit">
-                </div>
-            </form>
+                <form class="comments-form">
+                    
+                    <div class="comment-input-fields">
+                        <input type="text" class="comments-field" name="name" id="name" placeholder="Name" required="required"/>
+                        <input type="text" class="comments-field" name="surname" id="surname" placeholder="Surame" required="required"/>
+                        <input type="email" class="comments-field" name="email" id="email" placeholder="Email" required="required"/>
+                    </div>
+                    <div class="comment-input-fields">
+                        <textarea class="comments-field" name="comment" id="comment" placeholder="Comment" required="required" data-custom-validator="maxwords" data-maxwords="3"></textarea>
+                        <input class="comments-submit comments-field" type="submit">
+                    </div>
+                </form>
+            </div>
         </section>
 
         <footer class="main-footer">
@@ -184,5 +175,6 @@
                 </div>
             </div>
         </footer>
+        <script type="text/javascript" src="./dist/js/fnews.js" ></script>
     </body>
 </html>

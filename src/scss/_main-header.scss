@@ -105,31 +105,30 @@ body{
                 justify-content: space-between;
 
                 .login-icon, .search-icon{
-                    display: initial;
-                    position: initial;
+                    display: inline-block;
+                    position: static;
                 }
 
                 .main-menu, .main-header-title {
                     display: inline-block;
-                    position: initial;
-                    width: initial;
-                    margin: initial;
+                    position: static;
+                    width: auto;
+                    margin: 0;
                 }
             }
         }
 
         @media screen and (min-width: 1100px){
-    
-
+            
             .main-header-container{
                 
                 max-width: 1200px;
 
                 .main-header-login, .main-header-search{
                     display: inline-block;
-                    position: initial;
-                    width: initial;
-                    margin: initial;
+                    position: static;
+                    width: auto;
+                    margin: 0;
                 }
 
                 .login-icon, .search-icon{
